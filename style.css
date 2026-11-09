@@ -1,0 +1,162 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    padding: 20px;
+    background: linear-gradient(135deg, #050816, #101b35, #260b45);
+    font-family: Arial, sans-serif;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    overflow-x: hidden;
+}
+
+/* WEBSITE HEADING */
+
+h1 {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 30px 10px;
+    font-size: 38px;
+    color: #00eaff;
+    letter-spacing: 2px;
+    text-transform: capitalize;
+
+    text-shadow:
+        0 0 10px #00eaff,
+        0 0 25px #008cff,
+        0 0 45px #8b00ff;
+
+    animation: headingGlow 2s infinite alternate,
+               headingShow 1s ease;
+}
+
+/* HEADING ANIMATION */
+
+@keyframes headingGlow {
+    from {
+        text-shadow: 0 0 10px #00eaff;
+    }
+    to {
+        text-shadow: 0 0 25px #00eaff,
+                     0 0 50px #8b00ff;
+    }
+}
+
+@keyframes headingShow {
+    from {
+        opacity: 0;
+        transform: translateY(-40px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* IMAGE GALLERY */
+
+img {
+    width: 100%;
+    height: 230px;
+    object-fit: cover;
+    border-radius: 18px;
+
+    border: 2px solid rgba(0,234,255,0.3);
+
+    box-shadow:
+        0 8px 20px rgba(0,0,0,0.5),
+        0 0 10px rgba(0,234,255,0.2);
+
+    cursor: pointer;
+
+    transition: all 0.4s ease;
+
+    animation: imageShow 0.8s ease both;
+}
+
+/* IMAGE HOVER */
+
+img:hover {
+    transform: scale(1.07) translateY(-8px);
+
+    border-color: #00eaff;
+
+    box-shadow:
+        0 0 15px #00eaff,
+        0 0 30px #8b00ff,
+        0 10px 25px rgba(0,0,0,0.5);
+
+    filter: brightness(1.15);
+}
+
+/* IMAGE ANIMATION */
+
+@keyframes imageShow {
+    from {
+        opacity: 0;
+        transform: translateY(40px) scale(0.85);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+/* TABLET */
+
+@media (max-width: 1000px) {
+    body {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/* MOBILE */
+
+@media (max-width: 600px) {
+    body {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+        padding: 12px;
+    }
+
+    h1 {
+        font-size: 24px;
+        padding: 25px 5px;
+    }
+
+    img {
+        height: 175px;
+        border-radius: 13px;
+    }
+
+    img:hover {
+        transform: scale(1.03);
+    }
+}
+
+/* SCROLLBAR */
+
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #050816;
+}
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(#00eaff, #8b00ff);
+    border-radius: 10px;
+}
+
+/* TEXT SELECTION */
+
+::selection {
+    background: #00eaff;
+    color: #050816;
+}
